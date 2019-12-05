@@ -13,7 +13,10 @@ void ListStrings::append(QString str)
 
 void ListStrings::removeLast()
 {
-    this->list.removeLast();
+    if (this->list.count()) {
+        this->list.removeLast();
+    }
+    //this->list.removeLast();
     emit listChanged();
 }
 

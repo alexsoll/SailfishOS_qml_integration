@@ -3,18 +3,24 @@
 
 Counter::Counter() : QObject()
 {
+    this->last = 1;
+    this->prelast = 1;
     this->count = 0;
 }
 
 void Counter::increment()
 {
-    this->count++;
+    this->prelast = this->last;
+    this->last = this->count;
+    this->count = this->prelast + this->last;
     emit countChanged();
 }
 
 void Counter::reset()
 {
     this->count = 0;
+    this->prelast = 1;
+    this->last = 1;
     emit countChanged();
 }
 

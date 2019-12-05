@@ -6,6 +6,8 @@
 
 class Counter : public QObject
 {
+    int last;
+    int prelast;
     Q_OBJECT
     Q_PROPERTY(int count READ getCount WRITE setCount NOTIFY countChanged)
 private:
